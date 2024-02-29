@@ -67,11 +67,11 @@ public class MenuCLI {
 
                     var item2FromDb = session2.find(Item.class, 1L);
 
-                    System.out.println(employee1FromDb);
+                    System.out.println(item2FromDb);
                     break;
                 case 4:
                     System.out.println("Actualizando un item...");
-                    Session session1 = HibernateUtil.getSessionFactory().openSession();
+                    Session session3 = HibernateUtil.getSessionFactory().openSession();
 
 
 
@@ -79,18 +79,18 @@ public class MenuCLI {
                     emp1.setId(3L);
                     emp1.setAge(24);
 
-                    session1.beginTransaction();
-                    session1.merge(emp1);
-                    session1.getTransaction().commit();
+                    session3.beginTransaction();
+                    session3.merge(emp1);
+                    session3.getTransaction().commit();
 
                     System.out.println(emp1);
                     break;
                 case 5:
                     System.out.println("Borrando un item...");
-                    Session session = HibernateUtil.getSessionFactory().openSession();
-                    session.beginTransaction();
-                    session.remove(session.find(Employee.class, 3L));
-                    session.getTransaction().commit();
+                    Session session4 = HibernateUtil.getSessionFactory().openSession();
+                    session4.beginTransaction();
+                    session4.remove(session4.find(Item.class, 1L));
+                    session4.getTransaction().commit();
                     break;
                 case 6:
                     System.out.println("Asignando categoría...");
