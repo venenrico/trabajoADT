@@ -75,6 +75,7 @@ public class MenuCLI {
 
 
 
+
                     var emp1 = new Employee("employee1", 23);
                     emp1.setId(3L);
                     emp1.setAge(24);
