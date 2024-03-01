@@ -70,7 +70,7 @@ public class MenuCLI {
                     System.out.println(item2FromDb);
                     break;
                 case 4:
-                    System.out.println("Actualizando un item...");
+                  /*  System.out.println("Actualizando un item...");
                     Session session3 = HibernateUtil.getSessionFactory().openSession();
 
 
@@ -84,7 +84,7 @@ public class MenuCLI {
                     session3.merge(emp1);
                     session3.getTransaction().commit();
 
-                    System.out.println(emp1);
+                    System.out.println(emp1);*/
                     break;
                 case 5:
                     System.out.println("Borrando un item...");
