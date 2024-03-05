@@ -2,14 +2,12 @@ package model;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String User;
+    String user;
     @OneToOne
     @JoinColumn(name="item_id", unique = true)
     Item item;
@@ -21,7 +19,7 @@ public class Loan {
     }
 
     public Loan(String user, Long checkout_date, Long due_date, Long returned_date) {
-        User = user;
+        user = user;
         this.checkout_date = checkout_date;
         this.due_date = due_date;
         this.returned_date = returned_date;
@@ -36,11 +34,11 @@ public class Loan {
     }
 
     public String getUser() {
-        return User;
+        return user;
     }
 
     public void setUser(String user) {
-        User = user;
+        user = user;
     }
 
     public Item getItem() {
@@ -79,7 +77,7 @@ public class Loan {
     public String toString() {
         return "Loan{" +
                 "id=" + id +
-                ", User='" + User + '\'' +
+                ", User='" + user + '\'' +
                 ", item=" + item +
                 ", checkout_date=" + checkout_date +
                 ", due_date=" + due_date +
