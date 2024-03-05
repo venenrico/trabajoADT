@@ -3,6 +3,7 @@ package model;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.Date;
 import java.util.List;
@@ -73,7 +74,7 @@ public class LoanService {
             }
 
             // Establecer la fecha de devolución y actualizar el préstamo
-            loan.setReturnedDate(new Date());
+            loan.setReturned_date(new Date().getTime());
             session.update(loan);
 
             transaction.commit();
@@ -93,7 +94,7 @@ public class LoanService {
         try (Session session = sessionFactory.openSession()) {
             // Crear una consulta HQL para obtener los ítems prestados al usuario dado
             String hql = "SELECT l.item FROM Loan l WHERE l.user.id = :user_id";
-            Query<Item> query = session.createQuery(hql, Item.class);
+            org.hibernate.query.Query<Item> query = session.createQuery(hql, Item.class);
             query.setParameter("user_id", user_id);
             List<Item> items = query.getResultList();
             return items;
@@ -107,7 +108,7 @@ public class LoanService {
         try (Session session = sessionFactory.openSession()) {
             // Crear una consulta HQL para obtener todos los ítems que están en préstamo
             String hql = "SELECT DISTINCT l.item FROM Loan l WHERE l.returnedDate IS NULL";
-            Query<Item> query = session.createQuery(hql, Item.class);
+            org.hibernate.query.Query<Item> query = session.createQuery(hql, Item.class);
             List<Item> items = query.getResultList();
             return items;
         } catch (Exception e) {
