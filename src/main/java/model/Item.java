@@ -16,11 +16,11 @@ public class Item {
     String name;
     String description;
     @ManyToOne
-    @JoinColumn(name = "box_id")
-    List<Box> box = new ArrayList<>();
+    @JoinColumn(name = "box_id", unique=true)
+    Box box;
     @ManyToMany(mappedBy = "item")
-    @JoinTable(name = "item_category", joinColumns = @JoinColumn(name = "item_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
+   // @JoinTable(name = "item_category", joinColumns = @JoinColumn(name = "item_id", referencedColumnName = "id"),
+    //        inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
 
     List<Category> categories = new ArrayList<>();
     @OneToOne
@@ -63,11 +63,11 @@ public class Item {
         this.description = description;
     }
 
-    public List<Box> getBox() {
+    public Box getBox() {
         return box;
     }
 
-    public void setBox(List<Box> box) {
+    public void setBox(Box box) {
         this.box = box;
     }
 

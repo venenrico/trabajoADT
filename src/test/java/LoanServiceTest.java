@@ -1,9 +1,5 @@
+import model.*;
 import org.example.HibernateUtil;
-import model.Box;
-import model.Category;
-import model.Item;
-import model.User;
-import model.Loan;
 import org.hibernate.Session;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +21,7 @@ public class LoanServiceTest {
 
     @Test
     public void testLoanItemToUser() {
-        String result = loanService.loanItemToUser(1L, 1L); // Asumiendo que 1L son IDs válidos
+        String result = LoanService.loanItemToUser(1L, 1L); // Asumiendo que 1L son IDs válidos
         assertEquals("Item prestado correctamente", result);
 
         // Verificar que el préstamo existe y no tiene fecha de devolución

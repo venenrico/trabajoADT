@@ -31,7 +31,7 @@ public class ItemServiceTest {
             Item item = session.get(Item.class, 1L);
             assertNotNull(item, "El ítem no debe ser nulo");
             assertNotNull(item.getBox(), "La caja del ítem no debe ser nula");
-            assertEquals(2L, item.getBox().get(), "El ítem debería estar ahora en la caja con ID 2L");
+            assertEquals(2L, item.getBox().getItem(), "El ítem debería estar ahora en la caja con ID 2L");
         } catch (Exception e) {
             fail("Fallo al obtener el ítem actualizado de la base de datos.");
         }

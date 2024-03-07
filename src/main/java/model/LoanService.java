@@ -9,13 +9,16 @@ import java.util.Date;
 import java.util.List;
 
 public class LoanService {
-    private SessionFactory sessionFactory;
+    public static SessionFactory sessionFactory;
+
+    public LoanService() {
+    }
 
     public LoanService(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    public String loanItemToUser(Long item_id, Long user_id) {
+    public static String loanItemToUser(Long item_id, Long user_id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
 
@@ -56,7 +59,7 @@ public class LoanService {
         }
     }
 
-    public String returnItem(Long item_id) {
+    public static String returnItem(Long item_id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
 

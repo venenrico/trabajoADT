@@ -31,7 +31,7 @@ public class ItemService {
             }
 
             // Asignar la caja al ítem
-            item.setBox((List<Box>) boxe);
+            item.setBox((Box) boxe);
 
             // Actualizar el ítem en la base de datos
             session.update(item);

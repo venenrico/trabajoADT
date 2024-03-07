@@ -12,7 +12,7 @@ public class Box {
     Integer id;
     String label;
     String location;
-    @OneToMany(mappedBy = "box")
+    @OneToMany(mappedBy = "items")
     List<Item> item = new ArrayList<>();
 
     public Box() {

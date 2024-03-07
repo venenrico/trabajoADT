@@ -13,6 +13,7 @@ public class Category {
     @Column(length = 50, nullable = false)
     String name;
     @ManyToMany(mappedBy = "category")
+   // @JoinTable(name = "category-items", joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "items_id", referencedColumnName = "id"))
     List<Item> items = new ArrayList<>();
 
     public Category() {
